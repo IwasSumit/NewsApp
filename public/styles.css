@@ -1,0 +1,128 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #e3e3e3;
+}
+
+nav{
+    margin-bottom: 40px;
+}
+
+img{
+    max-width: 100%;
+    font-size:8px;
+    border-radius: 4px;
+    position: relative;
+}
+
+img::before {
+    content: " ";
+    background-color: #eee;
+    width: 386px;
+    max-width: 100%;
+    height: 190px;
+    display: block;
+    position: relative;
+    border: 1px dashed #aaa;
+    border-radius: 4px;
+  }
+  img::after {
+    content: "\2639 " attr(alt);
+    position: absolute;
+    display: block;
+    width:386px;
+    max-width: 100%;
+    height: 190px;
+    top: 10px;
+    left: 0px;
+    text-align: center;
+    font-weight: bold;
+    color: #999;
+  }
+
+h4{
+    font-size: 1.45rem;
+  padding-top: 4%;
+}
+
+.Hover-effect:hover{
+    transform:  translateY(-3px) scale(1.01);
+
+}
+
+h3{
+    font-size: 1.45rem;
+    padding-top: 4%;
+}
+h2{
+    font-size: 1.45rem;
+}
+
+.contentt{
+    margin-bottom: 0.7rem;
+}
+.momentss{
+  margin-bottom: 0;
+}
+
+.news-container{
+    margin-bottom: 20px;
+    padding: 0 1rem;
+    padding-top: 92px;
+}
+.news{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-gap: 1.7rem;
+}
+
+.news-box{
+    transition: all 0.3s ;
+    text-decoration: none;
+    color: rgb(29, 25, 25);
+    border-radius: 12px;
+    background-color: white;
+    padding: 20px;
+}
+
+.news-box:hover{
+    text-decoration: none;
+    color: rgb(29, 25, 25);;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.23);
+}
+
+
+.searc-bar{
+    justify-content: center;
+}
+
+/* #effect ********************** */
+
+.Hover-effect {
+    position: relative;
+}
+
+.Hover-effect::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: var(--underline-hight);
+    background-color: var(--underline_color);
+    left: 0;
+    bottom: 0;
+    transform: scale(0, 1);
+    transition: transform 0.3s ease;
+}
+
+
+
+.Hover-effect:hover::after {
+    transform: scale(1, 1);
+}
+
+footer {
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+}
+

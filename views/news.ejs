@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="styles.css">
+        
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top fixed-top">
+        <a class="navbar-brand" href="/" style="font-weight: 700;
+        font-size: 24px;"> <span style="color: rgb(0, 153, 255);" >IEEE</span> Times</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/tech" action="/tech" method="POST">Technology</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/entertainment"  action="/entertainment" method="POST">Entertainment</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/business" action="/business" method="POST">Business</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/sports" action="/sports" method="POST">Sports</a>
+                </li>
+          
+              </ul>
+          
+            <form class="d-flex" action="/search" method="POST">
+                <input class="form-control me-2"  name="search" type="search" placeholder="Search" autocomplete="off" 
+                    aria-label="Search">
+                <button class="btn btn-outline my-2 my-sm-0" type="submit"><i class='bx bx-search'></i></button>
+            </form>
+             
+           
+        </div>
+
+        
+</nav>
+    
+
+     <div class="news-container ">
+        <div class="news ">
+
+            <% articles.forEach(function(article,index){ %>
+                <% if ((typeof article.url=='object') || (typeof article.title=='object') || (typeof article.urlToImage=='object') || (typeof article.content=='object')){ %>
+                    <% } else{ %>
+
+               <a href="<%- article.url %>" target="_blank" class="news-box Hover-effect">
+
+                            <img src="<%- article.urlToImage %>" alt="img not found" height="200px" width="386px">
+                            <h4>
+                                <%- article.title.substring(0,69).concat("...") %>
+                            </h4>
+                            <p class="contentt"><%-article.content.substring(0,200).replace(/<[^>]+>/g, '')%></p>
+                               <h6 style="color:rgb(0, 153, 255) ; padding-bottom: 2px;"><%-article.source.name%></h6>
+                            <p class="momentss"><%- moment.utc(article.publishedAt).local().format('MMMM Do YYYY, h:mm a')%></p>
+                         </a>
+                        
+                        <% } %>
+                        <% }) %>
+        </div>
+    </div>
+    <script src="moment.js"></script>
+<script src="moment-timezone-with-data.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+<footer>Copyright <i class='bx bx-copyright'></i>IEEE-VESIT</footer>
+
+</html>
